@@ -48,6 +48,27 @@ Vue.component('basket', {
                     if (this.basket[i].quantity === 0) this.basket.splice(i, 1);
                 }
             }
+        },
+        addProduct(product) {
+            let find = this.basket.find(item => item.id_product === product.id_product);
+
+            if(find) {
+                this.$parent.putJSON('/basket/' + product.id_product, {op: 1})
+                    .then(answer => {
+                        if(answer) {
+                            find.quantity++;
+                        }
+                    });
+            } else {
+                this.$parent.postJSON('/basket', product)
+                    .then(answer => {
+                        if(answer) {
+                            this.basket.push(Object.assign({}, product, {quantity: 1}));
+                        }
+                    });
+            }
+            this.totalPrice += product.price;
+            this.totalQuantity++;
         }
     },
     template: `

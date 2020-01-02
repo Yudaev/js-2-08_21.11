@@ -23,6 +23,19 @@ let app = new Vue ({
                 .catch (err => {
                     console.log (err);
                 });
+        },
+        putJSON (url, data) {
+            return fetch (url, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+                .then (d => d.json ())
+                .catch (err => {
+                    console.log (err);
+                });
         }
     }
 });

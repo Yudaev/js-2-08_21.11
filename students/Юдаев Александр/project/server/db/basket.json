@@ -1,13 +1,13 @@
 {
-  "amount": 120,
-  "countGoods": 3,
+  "amount": 220,
+  "countGoods": 8,
   "contents": [
     {
       "id_product": 4,
       "product_name": "Rippen Mango",
       "price": 20,
       "img": "http://oach.ucoz.ru/sites/food/4.jpg",
-      "quantity": 1
+      "quantity": 6
     },
     {
       "id_product": 6,
