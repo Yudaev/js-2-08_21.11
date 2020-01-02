@@ -13,6 +13,7 @@ Vue.component('search', {
                 this.$parent.$refs.catalog.items = [];
                 for (let i of this.fullItems) {
                     if(i.product_name.search(new RegExp(val.toString(), 'i')) !== -1){
+                        // i.product_name.innerHTML = `<span class=".search-bg">${i.product_name}</span>`;
                         this.$parent.$refs.catalog.items.push(i);
                     }
                 }
