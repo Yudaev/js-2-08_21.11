@@ -12,7 +12,7 @@ Vue.component('basket-item', {
                 </div>
             </div>
             <div class="right-block">
-                <button class="del-btn" @click="$root.$refs.basket.deleteItemFromBasket(prod.id_product)"><span class="icon icon-Delete"></span></button>
+                <button class="del-btn" @click="$root.$refs.basket.deleteItemFromBasket(prod)"><span class="icon icon-Delete"></span></button>
             </div>
         </div>
     `,

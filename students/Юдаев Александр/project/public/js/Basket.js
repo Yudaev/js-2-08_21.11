@@ -39,14 +39,14 @@ Vue.component('basket', {
             this.totalPrice += price;
             this.totalQuantity++;
         },
-        deleteItemFromBasket (id_product) {
-            for (let i = 0; i < this.basket.length; i++) {
-                if (this.basket[i].id_product === id_product){
-                    this.basket[i].quantity--;
-                    this.totalQuantity--;
-                    this.totalPrice -= this.basket[i].price;
-                    if (this.basket[i].quantity === 0) this.basket.splice(i, 1);
-                }
+        deleteItemFromBasket (product) {
+            let find = this.basket.find(item => item.id_product === product.id_product);
+
+            if(find) {
+                find.quantity--;
+                this.totalQuantity--;
+                this.totalPrice -= find.price;
+                if (find.quantity === 0) this.basket.splice(this.basket.indexOf(product), 1);
             }
         },
         addProduct(product) {
